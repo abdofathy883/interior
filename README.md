@@ -9,4 +9,6 @@ npm start      # http://localhost:4200
 ```
 
 Demo logins: `admin@demo.com` / `demo123` and `client@demo.com` / `demo123`.
+Live demo (GitHub Pages): https://abdofathy883.github.io/interior/
+Deployed automatically on every push to `main` by `.github/workflows/deploy.yml`.
 Full documentation: [`docs/HANDOVER.md`](docs/HANDOVER.md).

@@ -16,6 +16,11 @@ npx ng lint        # ESLint (TS + templates)
 ```
 Use a phone-width browser window (or devtools device mode) to see the mobile layout.
 
+## Public deployment (GitHub Pages)
+- URL: https://abdofathy883.github.io/interior/ (repo `abdofathy883/interior`, one-time setting: Settings → Pages → Source = **GitHub Actions**).
+- `.github/workflows/deploy.yml` builds on every push to `main` with `--base-href /<repo>/`, copies `index.html` to `404.html` (so deep links/refresh work) and publishes `dist/interior/browser`.
+- Demo data lives in each visitor's own browser localStorage, so visitors never see each other's entries.
+
 ## Demo credentials
 | Role | Email | Password | Lands on |
 |---|---|---|---|
