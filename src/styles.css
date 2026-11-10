@@ -1,0 +1,187 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/cairo/wght.css';
+
+@theme {
+  --font-sans: 'Cairo Variable', 'Cairo', 'Tajawal', system-ui, sans-serif;
+
+  --color-brand-50: #f0f9f6;
+  --color-brand-100: #d8f0e8;
+  --color-brand-200: #b4e0d2;
+  --color-brand-300: #82c9b5;
+  --color-brand-400: #4fab95;
+  --color-brand-500: #2f8f7a;
+  --color-brand-600: #217262;
+  --color-brand-700: #1d5b50;
+  --color-brand-800: #1b4a42;
+  --color-brand-900: #183d37;
+
+  --color-sand-50: #fbf7ef;
+  --color-sand-100: #f5e8cc;
+  --color-sand-200: #ecd49e;
+  --color-sand-500: #c9963f;
+  --color-sand-600: #a97a2e;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-stone-50 text-stone-800 antialiased;
+    min-height: 100dvh;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+  }
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-stone-200 bg-white shadow-sm;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold whitespace-nowrap transition select-none;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-brand-700 text-white shadow-sm hover:bg-brand-800 active:bg-brand-900;
+  }
+  .btn-secondary {
+    @apply border border-stone-300 bg-white text-stone-700 hover:bg-stone-50 active:bg-stone-100;
+  }
+  .btn-ghost {
+    @apply text-stone-600 hover:bg-stone-100 active:bg-stone-200;
+  }
+  .btn-danger {
+    @apply border border-rose-200 bg-white text-rose-700 hover:bg-rose-50;
+  }
+  .btn-lg {
+    @apply h-14 rounded-2xl px-6 text-base;
+  }
+  .btn-sm {
+    @apply h-9 rounded-lg px-3 text-xs;
+  }
+  .icon-btn {
+    @apply inline-flex size-10 cursor-pointer items-center justify-center rounded-xl text-stone-600 transition hover:bg-stone-100 active:bg-stone-200;
+  }
+
+  /* Forms */
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-stone-700;
+  }
+  .input {
+    @apply h-12 w-full rounded-xl border border-stone-300 bg-white px-4 text-base text-stone-900 placeholder:text-stone-400;
+    @apply transition focus:border-brand-600 focus:ring-2 focus:ring-brand-200 focus:outline-none;
+  }
+  .input-lg {
+    @apply h-14 rounded-2xl text-lg;
+  }
+  .input.ng-invalid.ng-touched {
+    @apply border-rose-400 focus:border-rose-500 focus:ring-rose-100;
+  }
+  .field-error {
+    @apply mt-1.5 text-sm font-medium text-rose-600;
+  }
+  .chip {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center rounded-xl border border-stone-300 bg-white px-3.5 text-sm font-semibold text-stone-700 transition hover:bg-stone-50;
+  }
+  .chip[aria-checked='true'],
+  .chip[aria-pressed='true'] {
+    @apply border-brand-700 bg-brand-700 text-white hover:bg-brand-800;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .badge-green {
+    @apply bg-emerald-100 text-emerald-800;
+  }
+  .badge-amber {
+    @apply bg-amber-100 text-amber-800;
+  }
+  .badge-rose {
+    @apply bg-rose-100 text-rose-800;
+  }
+  .badge-stone {
+    @apply bg-stone-100 text-stone-700;
+  }
+  .badge-brand {
+    @apply bg-brand-100 text-brand-800;
+  }
+
+  /* Tables */
+  .table-th {
+    @apply px-4 py-3 text-start text-xs font-bold text-stone-500;
+  }
+  .table-td {
+    @apply px-4 py-3.5 text-sm text-stone-700;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-stone-200;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes toast-in {
+  from {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.anim-sheet {
+  animation: sheet-up 0.22s ease-out;
+}
+.anim-fade {
+  animation: fade-in 0.18s ease-out;
+}
+.anim-toast {
+  animation: toast-in 0.22s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-sheet,
+  .anim-fade,
+  .anim-toast {
+    animation: none;
+  }
+}
